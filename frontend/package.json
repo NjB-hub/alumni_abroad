@@ -20,6 +20,7 @@
     "@angular/router": "~12.1.1",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "bootstrap": "^4.6.0",
+    "css-loader": "^6.5.1",
     "jquery": "^3.6.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
@@ -41,5 +42,6 @@
   },
   "engines": {
     "node": "^16.10"
-  }
+  },
+  "start": "node server.js"
 }
