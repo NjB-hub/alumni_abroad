@@ -1,0 +1,74 @@
+<section class=" p-3  m-0">
+    <div class="container">
+        <div class="row ">
+            <div class="col-lg-6 col text-center my-3">
+                <img src="assets/images/logoEAA.jpeg" width="200" height="200" alt="Logo du site" />
+                <p class="quote">Let's reconnect !</p>
+            </div>
+
+            <div class="col-lg-4 col p-4 m-sm-5 form shadow-lg" >
+                <form method="post" [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+                    <div class="signinMessage alert-danger"
+                    *ngIf="signinMessage != '' ">
+                        <p>{{signinMessage}}</p>
+                    </div>
+                    
+                    <div class="mb-3 ">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text"
+                        class="form-control"
+                        id="username"
+                        formControlName="username" />
+                    </div>
+                    <div class="mb-1 small text-danger"
+                               *ngIf="username?.errors?.minlength"><p>The username must contain at least 6 characters !</p>
+                    </div>
+                    <div class="mb-1 small text-danger"
+                               *ngIf="username?.errors?.maxlength"><p>The username must contain less than 20 characters !</p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="passwordDiv">
+                            <input type="password"
+                                    class="form-control"
+                                    id="password"
+                                    formControlName="password"
+                                    appPassword >
+                        </div>
+                        <div class="mb-1 small text-danger"
+                        *ngIf="password?.errors?.minlength"><p>The password must contain at least 6 characters !</p>
+                        </div>
+                        <div class="mb-1 small text-danger"
+                                    *ngIf="!password?.errors?.minlength && password?.errors?.pattern"><p>The password must contain at least one special character !</p>
+                        </div>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="check">
+                        <label class="form-check-label" for="check">Check me out</label>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" 
+                        class="btn btn--outline-primary"
+                        [ngClass]="{'btn--disabled':signinForm.invalid}"
+                        >Sign in</button>
+                    </div>
+                    <div class="text-center mt-2">
+                        <a routerLink="/forgotpassword" class="fromleft">Forgot password ?</a>
+                    </div>  
+                    <hr>
+                    <div class="text-center mt-2">
+                        <a routerLink="/signup">Don't have an account ? Sign up</a>
+                    </div>   
+                </form>
+                
+                <div class=" d-flex align-items-end flex-column mt-2 " >
+                    <br>
+                    <a routerLink="/index">Go back to home</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
