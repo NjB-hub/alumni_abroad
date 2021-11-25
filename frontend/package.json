@@ -7,8 +7,7 @@
     "build": "ng build --prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "e2e": "ng e2e",
-    "preinstall": "ng build --aot --target=production"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
