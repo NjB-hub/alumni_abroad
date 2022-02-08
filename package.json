@@ -22,9 +22,9 @@
     "@angular/router": "~12.1.1",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "bootstrap": "^4.6.0",
+    "cssnano": "^5.0.17",
     "express": "^4.17.2",
     "jquery": "^3.6.0",
-    "nano-css": "^5.3.4",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"

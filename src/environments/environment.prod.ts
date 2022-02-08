@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  backend_API_URL: "https://enspyalumniabroadapi.herokuapp.com/"
 };

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  backend_API_URL: "http://localhost:1337/"
+  //backend_API_URL: "http://localhost:1337/",
+  backend_API_URL: "https://enspyalumniabroadapi.herokuapp.com/"
 };
 
 /*
