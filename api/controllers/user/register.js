@@ -57,7 +57,7 @@ module.exports = {
       }).fetch();
 
       
-      const confirmLink = `${sails.config.api_baseUrl}user/confirm?token=${token}`;
+      const confirmLink = `${sails.config.api_baseUrl}/user/confirm?token=${token}`;
 
       //setup and send the mail
       const email = {

@@ -44,7 +44,7 @@ module.exports = {
       passwordResetTokenExpiresAt: Date.now() + sails.config.custom.passwordResetTokenTTL,
     });
 
-    const recoveryLink = `${sails.config.frontend_base_url}resetpassword?token=${token}`;
+    const recoveryLink = `${sails.config.frontend_base_url}/resetpassword?token=${token}`;
 
     try{
 
