@@ -15,5 +15,5 @@ module.exports = {
   jwtSecret: "jwtSecret",
   //frontend_base_url: "http://localhost:4200/",
   frontend_base_url: "https://enspyalumniabroad.herokuapp.com/",
-
+  
 };
