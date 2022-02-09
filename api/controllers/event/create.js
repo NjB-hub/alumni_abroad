@@ -1,11 +1,8 @@
 module.exports = {
 
-
   friendlyName: 'Create',
 
-
   description: 'Create event.',
-
 
   inputs: {
     dateEvent: { 
@@ -17,7 +14,6 @@ module.exports = {
     },
 
   },
-
 
   exits: {
     success: {
@@ -31,7 +27,6 @@ module.exports = {
     },
 
   },
-
 
   fn: async function (inputs, exits) {
 
