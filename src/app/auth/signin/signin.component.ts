@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  FormBuilder, Validators, FormGroup, AbstractControl } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../services/auth.service';
 import { Router, ActivatedRoute, Params} from '@angular/router';
 
 @Component({
@@ -40,7 +40,7 @@ export class SigninComponent implements OnInit {
         this.authService.isAuth = true;
         this.authService.isAdmin = response.data.isAdmin;
 
-        localStorage.setItem("user", response.data);
+        localStorage.setItem("user", JSON.stringify(response.data));
         localStorage.setItem("token", response.token);
    
         this.router.navigate(['/feed']);

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  FormBuilder, Validators, FormGroup, AbstractControl } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../services/auth.service';
 import  checkPassword  from '../../validators/checkPassword';
 import { Router } from '@angular/router';
 
@@ -25,6 +25,7 @@ export class SignupComponent implements OnInit {
   get username(){
     return this.signupForm.get('username');
   }
+
   get password(){
     return this.signupForm.get('password');
   }
@@ -64,10 +65,8 @@ export class SignupComponent implements OnInit {
       validators: [checkPassword]
     });
   }
+
   ngOnInit(): void {
     this.initForm();
   }
-  
-
-  
 }

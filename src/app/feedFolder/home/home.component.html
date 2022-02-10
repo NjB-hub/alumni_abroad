@@ -6,10 +6,13 @@
       <div class="col ">
         <div class="card mb-3 mb-lg-0 shadow ">
           <div class="card-body">
-            <h5 class="card-title"><img src="../../assets/images/logoEAA.jpeg" width="45px" height="45px"/><span class="ml-1">Share something...</span></h5>
+            <h5 class="card-title">
+              <img src="../../assets/images/logoEAA.jpeg" width="45px" height="45px" class="ml-3"/>
+              <button type="button" class="btn btn-light ml-3">{{ user.username }} Share something...</button>
+            </h5>
             <hr class="bg--primary mt-0">
             <div class="topost">
-              <a role="button" class="btn btn--primary" href="">Event</a>
+              <a role="button" class="btn btn--primary" id="postEventButton" data-toggle="collapse" href="#publishEventForm">Event</a>
               <a role="button" routerLink="publish:offer" class="btn btn--primary" href="">Offer</a>
               <a role="button" class="btn btn--primary" href="">Other</a>
             </div>
@@ -31,6 +34,10 @@
     </div>
     <div class="col-lg-2 "></div>
   </div>
+  <div class="collapse" id="publishEventForm">
+    <app-publish-event></app-publish-event>
+  </div>
+  
   <div class="row">
       <div class="col-lg-2">
         

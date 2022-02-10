@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AuthService } from './services/auth.service';
+import { AuthService } from './auth/services/auth.service';
 
 import { AppComponent } from './app.component';
 import { SignupComponent } from './auth/signup/signup.component';
@@ -20,7 +20,7 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { FooterIndexComponent } from './footer-index/footer-index.component';
 import { BackuppasswordComponent } from './auth/backuppassword/backuppassword.component';
 import { PasswordDirective } from './directives/password.directive';
-import { AuthGuardService } from './services/auth-guard.service';
+import { AuthGuardService } from './auth/services/auth-guard.service';
 import { CvComponent } from './cvFolder/cv/cv.component';
 import { CvExpertiseItemComponent } from './cvFolder/cv-expertise-item/cv-expertise-item.component';
 import { EducationItemComponent } from './cvFolder/education-item/education-item.component';
@@ -41,6 +41,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { CvFormComponent } from './cvFolder/cv-form/cv-form.component';
 import { ProfileFormComponent } from './profile-form/profile-form.component';
 import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.component';
+import { PublishEventComponent } from './feedFolder/publish-event/publish-event.component';
+import { UploadFilesComponent } from './feedFolder/upload-files/upload-files.component';
+import { UploadedFileItemComponent } from './feedFolder/uploaded-file-item/uploaded-file-item.component';
 
 const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent },
@@ -102,6 +105,9 @@ const appRoutes: Routes = [
     ProfileComponent,
     CvFormComponent,
     ProfileFormComponent,
+    PublishEventComponent,
+    UploadFilesComponent,
+    UploadedFileItemComponent,
   ],
   imports: [
     HttpClientModule,
