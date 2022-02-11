@@ -23,6 +23,7 @@
     "@fortawesome/fontawesome-free": "^5.15.4",
     "bootstrap": "^4.6.0",
     "cssnano": "^5.0.17",
+    "date-and-time": "^2.1.1",
     "express": "^4.17.2",
     "jquery": "^3.6.0",
     "rxjs": "~6.6.0",

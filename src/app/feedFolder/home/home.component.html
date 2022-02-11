@@ -8,13 +8,13 @@
           <div class="card-body">
             <h5 class="card-title">
               <img src="../../assets/images/logoEAA.jpeg" width="45px" height="45px" class="ml-3"/>
-              <button type="button" class="btn btn-light ml-3">{{ user.username }} Share something...</button>
+              <button type="button" class="btn btn-light ml-3" data-toggle="collapse" href="#publishOtherForm" (click)="postOtherClicked()">{{ user.username }} Share something...</button>
             </h5>
             <hr class="bg--primary mt-0">
             <div class="topost">
-              <a role="button" class="btn btn--primary" id="postEventButton" data-toggle="collapse" href="#publishEventForm">Event</a>
-              <a role="button" routerLink="publish:offer" class="btn btn--primary" href="">Offer</a>
-              <a role="button" class="btn btn--primary" href="">Other</a>
+              <a role="button" class="btn btn--primary" id="postEventButton" data-toggle="collapse" href="#publishEventForm" (click)="postEventClicked()">Event</a>
+              <a role="button" class="btn btn--primary" id="postOfferButton" data-toggle="collapse" href="#publishOfferForm" (click)="postOfferClicked()">Offer</a>
+              <a role="button" class="btn btn--primary" id="postOtherButton" data-toggle="collapse" href="#publishOtherForm" (click)="postOtherClicked()">Other</a>
             </div>
           </div>
         </div>          
@@ -36,6 +36,12 @@
   </div>
   <div class="collapse" id="publishEventForm">
     <app-publish-event></app-publish-event>
+  </div>
+  <div class="collapse" id="publishOfferForm">
+    <app-publish-offer></app-publish-offer>
+  </div>
+  <div class="collapse" id="publishOtherForm">
+    <app-publish-other></app-publish-other>
   </div>
   
   <div class="row">

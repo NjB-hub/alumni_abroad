@@ -19,6 +19,10 @@ export class FeedService {
   documentsSubject = new Subject<any[]>();
   documents:any[] = [];
 
+  //liste des posts
+  postsListSubject = new Subject<any[]>();
+  postsList:any[] = [];
+
   constructor(private http:HttpClient) { }
 
   emitFiles(){
@@ -27,15 +31,68 @@ export class FeedService {
     this.documentsSubject.next(this.documents.slice());
   }
 
-  postEvent(title: string, description:string, ownerP: string){
+  emitPosts(){
+    this.postsListSubject.next(this.postsList.slice());
+  }
+
+  createPost(title: string, description:string, category:string, ownerP: string, ownerProfile: string){
     return new Promise( //asynchronous function
         (resolve, reject) => {
             //Place backend function here
-            this.http.post( environment.backend_API_URL + 'post/create', {title: title, description: description, ownerP: ownerP}).subscribe(
+            this.http.post( environment.backend_API_URL + 'post/create', {title: title, description: description, category:category, ownerP: ownerP, ownerProfile: ownerProfile}).subscribe(
                 (response) =>{
                     resolve(response);
                 },
-                (error) => {
+                (error) => { 
+                    reject(error);
+                }
+            );
+        }
+    );
+  }
+
+  createEvent(dateEvent: string, place:string, post_id:string){
+    return new Promise( //asynchronous function
+        (resolve, reject) => {
+            //Place backend function here
+            this.http.post( environment.backend_API_URL + 'event/create', {dateEvent: dateEvent, place: place, post_id: post_id}).subscribe(
+                (response) =>{
+                    resolve(response);
+                },
+                (error) => { 
+                    reject(error);
+                }
+            );
+        }
+    );
+  }
+
+  createOffer(company: string, post_id:string){
+    return new Promise( //asynchronous function
+        (resolve, reject) => {
+            //Place backend function here
+            this.http.post( environment.backend_API_URL + 'offer/create', {company: company, post_id: post_id}).subscribe(
+                (response) =>{
+                    resolve(response);
+                },
+                (error) => { 
+                    reject(error);
+                }
+            );
+        }
+    );
+  }
+
+  //get the post List
+  getPosts(){
+    return new Promise( //asynchronous function
+        (resolve, reject) => {
+            //Place backend function here
+            this.http.get( environment.backend_API_URL + 'post/index').subscribe(
+                (response) =>{
+                    resolve(response);
+                },
+                (error) => { 
                     reject(error);
                 }
             );

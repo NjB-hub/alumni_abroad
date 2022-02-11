@@ -1,4 +1,4 @@
-@import "../../styles.scss";
+@import "../../../styles.scss";
 .left{
     &-photo{
         display: flex;
@@ -10,7 +10,7 @@
             width: 150px;
             height: 150px;
             border-radius: 75px;
-            margin-bottom: 1em;
+            margin-bottom: 1em; 
             
         }
     }
@@ -20,7 +20,7 @@
     flex-direction: column;
     align-items: center;
     .line{
-        display: flex;
+        display: flex; 
         justify-content: space-between;
         margin: 0.5em;
         position: relative;

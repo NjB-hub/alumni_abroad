@@ -46,17 +46,6 @@ export class UploadFilesComponent implements OnInit, OnDestroy {
       this.feedService.images.push(selectedFile);
       this.feedService.emitFiles();
     }
-        /* var reader = new FileReader();
-  
-        var imgtag:any = document.getElementById("myimage");  
-  
-        imgtag.title = selectedFile.name;
-  
-        reader.onload = function() {
-          imgtag.src = reader.result;  
-        };
-  
-        reader.readAsDataURL(selectedFile); */
   }
 
   uploadVideo(): void{

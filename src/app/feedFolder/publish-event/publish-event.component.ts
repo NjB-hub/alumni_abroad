@@ -42,19 +42,32 @@ export class PublishEventComponent implements OnInit {
     const tmpUser:any = localStorage.getItem('user');
     const user = JSON.parse(tmpUser);
     var ownerP = user.id;
-
-    console.log(ownerP);
-
+    var ownerProfile = user.userProfile[0].id;
 
     var place = this.publishEventForm.get('place')?.value;
     var date = this.publishEventForm.get('date')?.value;
     
-    
+    //requête pour la création du post
+    this.feedService.createPost(title, description, category, ownerP, ownerProfile).then(
+      (response:any) => {
+        //requête pour la création de l'évènement
+        var post_id = response.data.id;
 
-    console.log(title);
-    console.log(place);
-    console.log(date);
-    console.log(description);
+        this.feedService.createEvent(date, place, post_id).then(
+          (response:any) => {
+            
+            this.feedService.getPosts();
+            this.feedService.emitPosts();
+          },
+          (error:any) => {
+
+          }
+        )
+      },
+      (error:any) => {
+
+      }
+    );
 
     this.cancel();
     document.getElementById('postEventButton')?.click();

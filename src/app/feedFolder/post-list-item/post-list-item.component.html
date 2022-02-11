@@ -1,19 +1,63 @@
-<div class="post mx-5 my-5 py-2 px-4 shadow-sm">
+<div class="post mx-5 my-3 py-2 px-4 shadow-sm">
     <div class="post-head">
         <div class="post-head--left">
             <div class="mr-2 mb-1">
                 <div class=""> <img src="../../assets/images/logoEAA.jpeg" /></div>
             </div>
             <div >
-                <h5 class="post-auth m-0">John Doe</h5>
-                <div class="m-0 p-0 post-id"><span class="small">Student</span><span class="small">Just now</span></div>
+                <div *ngIf="ownerProfile.name || ownerProfile.surname; else elseBlock"><h5 class="post-auth m-0">{{ ownerProfile.surname }} {{ ownerProfile.name }}</h5></div>
+                <ng-template #elseBlock>
+                    <h5 class="post-auth m-0">{{ owner.username }}</h5>
+                </ng-template>
+
+                <div class="m-0 p-0 post-id"><span class="small">{{ownerProfile.position}}</span><span class="small">{{ post.createdAt | date : 'medium' }}</span></div>
             </div>
         </div>
         <div>
             <span>...</span>
         </div>
-        
-      
     </div>
-    <p class="post-desc mt-3">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." </p>
+    <div class="container mt-1">
+        <div class="row">
+            <div class="col-2" *ngIf="post.category==='event'">
+                <i class="fa fa-fw fa-tasks mr-5">&nbsp;&nbsp;Event</i>
+            </div>
+            <div class="col-2" *ngIf="post.category==='offer'">
+                <i class="fa fa-fw fa-handshake mr-5">&nbsp;&nbsp;Offer</i>
+            </div>
+            <div class="col-2" *ngIf="post.category==='other'">
+                <i class="fa fa-fw fa-bullhorn mr-5">&nbsp;&nbsp;Post</i>
+            </div>
+            <div class="col">
+                {{ post.title }}
+            </div>
+        </div>
+        <div class="row" *ngIf="post.category==='event'">
+            <div class="col-2">
+                <i class="fa fa-fw fa-map-marker mr-5">&nbsp;&nbsp;place</i>
+            </div>
+            <div class="col" *ngIf="post.event[0]">
+                {{ post.event[0].place }}
+            </div>
+        </div>
+        <div class="row" *ngIf="post.category==='offer'">
+            <div class="col-2">
+                <i class="fa fa-fw fa-building mr-5">&nbsp;&nbsp;company</i>
+            </div>
+            <div class="col" *ngIf="post.offer[0]">
+                {{ post.offer[0].company }}
+            </div>
+        </div>
+        <div class="row" *ngIf="post.category==='event'">
+            <div class="col-2">
+                <i class="fa fa-fw fa-calendar mr-5">&nbsp;&nbsp;date</i>
+            </div>
+            <div class="col">
+                {{ post.event[0].dateEvent | date : 'medium' }}
+            </div>
+        </div>
+    </div>
+    <p class="post-desc mt-3">
+        {{ post.description }}
+    </p>
 </div>

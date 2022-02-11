@@ -37,13 +37,14 @@ import { ResultListComponent } from './searchFolder/result-list/result-list.comp
 import { ResultListItemComponent } from './searchFolder/result-list-item/result-list-item.component';
 import { PublishOfferComponent } from './feedFolder/publish-offer/publish-offer.component';
 //import { NavHomeService } from './services/nav-home.service';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './profileFolder/profile/profile.component';
 import { CvFormComponent } from './cvFolder/cv-form/cv-form.component';
-import { ProfileFormComponent } from './profile-form/profile-form.component';
+import { ProfileFormComponent } from './profileFolder/profile-form/profile-form.component';
 import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.component';
 import { PublishEventComponent } from './feedFolder/publish-event/publish-event.component';
 import { UploadFilesComponent } from './feedFolder/upload-files/upload-files.component';
 import { UploadedFileItemComponent } from './feedFolder/uploaded-file-item/uploaded-file-item.component';
+import { PublishOtherComponent } from './feedFolder/publish-other/publish-other.component';
 
 const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent },
@@ -108,6 +109,7 @@ const appRoutes: Routes = [
     PublishEventComponent,
     UploadFilesComponent,
     UploadedFileItemComponent,
+    PublishOtherComponent,
   ],
   imports: [
     HttpClientModule,
