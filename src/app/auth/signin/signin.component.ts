@@ -48,7 +48,7 @@ export class SigninComponent implements OnInit {
       (error) => {
         console.log(error);
         this.signinMessage = error.error.error;
-        this.router.navigate(['/signin']);
+        this.router.navigate(['/auth/signin']);
       }
     );
   }

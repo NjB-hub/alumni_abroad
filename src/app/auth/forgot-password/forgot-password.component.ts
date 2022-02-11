@@ -32,10 +32,10 @@ export class ForgotPasswordComponent implements OnInit {
 
       this.authService.forgotPassword(email).then(
         (response) => {
-          this.router.navigate(['/backuppassword']);
+          this.router.navigate(['/auth/backuppassword']);
         },
         (error) => {
-          this.router.navigate(['/backuppassword']);
+          this.router.navigate(['/auth/backuppassword']);
         }
       );
     }

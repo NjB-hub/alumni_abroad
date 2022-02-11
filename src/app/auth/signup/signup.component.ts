@@ -38,7 +38,7 @@ export class SignupComponent implements OnInit {
     this.authService.signUpUser(email,username,password).then(
       (response) => {
         this.router.navigate(
-          ['/signin'], 
+          ['/auth/signin'], 
           {
             queryParams: {
               successMessage: 'Your account has been created. Check your mails to confirm your email address befor logging in.'
@@ -49,7 +49,7 @@ export class SignupComponent implements OnInit {
       (error) => {
         console.log(error);
         this.signupMessage = error.error.error;
-        this.router.navigate(['/signup']);
+        this.router.navigate(['/auth/signup']);
        }
     );
   }

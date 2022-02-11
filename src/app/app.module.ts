@@ -3,23 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AuthService } from './auth/services/auth.service';
 
 import { AppComponent } from './app.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { SigninComponent } from './auth/signin/signin.component';
 import { HomeComponent } from './feedFolder/home/home.component';
 import { IndexComponent } from './index/index.component';
-import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { NavHomeComponent } from './nav-home/nav-home.component';
 import { NavIndexComponent } from './nav-index/nav-index.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { FooterIndexComponent } from './footer-index/footer-index.component';
-import { BackuppasswordComponent } from './auth/backuppassword/backuppassword.component';
-import { PasswordDirective } from './directives/password.directive';
 import { AuthGuardService } from './auth/services/auth-guard.service';
 import { CvComponent } from './cvFolder/cv/cv.component';
 import { CvExpertiseItemComponent } from './cvFolder/cv-expertise-item/cv-expertise-item.component';
@@ -40,45 +34,14 @@ import { PublishOfferComponent } from './feedFolder/publish-offer/publish-offer.
 import { ProfileComponent } from './profileFolder/profile/profile.component';
 import { CvFormComponent } from './cvFolder/cv-form/cv-form.component';
 import { ProfileFormComponent } from './profileFolder/profile-form/profile-form.component';
-import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.component';
 import { PublishEventComponent } from './feedFolder/publish-event/publish-event.component';
 import { UploadFilesComponent } from './feedFolder/upload-files/upload-files.component';
 import { UploadedFileItemComponent } from './feedFolder/uploaded-file-item/uploaded-file-item.component';
 import { PublishOtherComponent } from './feedFolder/publish-other/publish-other.component';
 
-const appRoutes: Routes = [
-  { path: 'signup', component: SignupComponent },
-  { path: 'signin', component: SigninComponent },
-  { path: 'forgotpassword', component: ForgotPasswordComponent },
-  { path: 'backuppassword', component: BackuppasswordComponent },
-  { path: 'resetpassword', component: ResetpasswordComponent },
-  { path: 'settings/viewprofile', component: ProfileComponent },
-  { path: 'settings/modifyprofile', component: ProfileFormComponent },
-  { path: 'settings/viewcv', component: CvComponent },
-  { path: 'settings/modifycv', component: CvFormComponent },
-  { path: 'feed', canActivate: [AuthGuardService],  component: HomeComponent }, //canActivate for app protection when not signed in
-  { path: 'index', component: IndexComponent },
-  { path: 'feed/publish:offer', component: PublishOfferComponent },
- 
-  { path: 'not-found', component: FourOhFourComponent },
- 
-  { path: 'notifications', component: NotificationsComponent },
-  { path: 'search', component: SearchComponent },
-  { path: 'cv', component: CvComponent },
-  { path: 'calendar', component: CalendarContainerComponent },
-  { path: '', component: IndexComponent },
-  { path: '**', redirectTo: 'not-found' }
-];
-
-
 @NgModule({
   declarations: [
     AppComponent,
-
-    SignupComponent,
-    SigninComponent,
-    ForgotPasswordComponent,
-    ResetpasswordComponent,
 
     HomeComponent,
     IndexComponent,
@@ -86,8 +49,6 @@ const appRoutes: Routes = [
     NavIndexComponent,
     FourOhFourComponent,
     FooterIndexComponent,
-    BackuppasswordComponent,
-    PasswordDirective,
     CvComponent,
     CvExpertiseItemComponent,
     EducationItemComponent,
@@ -116,8 +77,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
-],
+    AppRoutingModule
+  ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })

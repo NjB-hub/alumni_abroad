@@ -37,7 +37,7 @@ export class ResetpasswordComponent implements OnInit {
     this.authService.resetPassword(password, this.token).then(
       (response) => {
         this.router.navigate(
-          ['/signin'], 
+          ['/auth/signin'], 
           {
             queryParams: {
               successMessage: 'Your password has been successfully reset.'
@@ -49,7 +49,7 @@ export class ResetpasswordComponent implements OnInit {
       (error) => {
         console.log(error);
         this.resetPasswordMessage = error.error.error;
-        this.router.navigate(['/resetpassword?token='+this.token]);
+        this.router.navigate(['/auth/resetpassword?token='+this.token]);
        }
     );
   }

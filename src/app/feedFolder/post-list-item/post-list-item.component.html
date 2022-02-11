@@ -5,7 +5,8 @@
                 <div class=""> <img src="../../assets/images/logoEAA.jpeg" /></div>
             </div>
             <div >
-                <div *ngIf="ownerProfile.name || ownerProfile.surname; else elseBlock"><h5 class="post-auth m-0">{{ ownerProfile.surname }} {{ ownerProfile.name }}</h5></div>
+                <div *ngIf="ownerProfile.name || ownerProfile.surname; else elseBlock">
+                    <h5 class="post-auth m-0">{{ ownerProfile.surname }} {{ ownerProfile.name }}</h5></div>
                 <ng-template #elseBlock>
                     <h5 class="post-auth m-0">{{ owner.username }}</h5>
                 </ng-template>
