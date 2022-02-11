@@ -6,19 +6,22 @@
  */
 
 module.exports = {
-  tableName: "events",
-  attributes: {
 
+  tableName: "events",
+
+  attributes: {
     dateEvent: { 
       type: 'string', 
-      required: true },
+      required: true 
+    },
     place: {
       type: 'string',
       required: true
     },
-    post_id: { 
-      model: 'post', 
-      },
+    post_id: {
+       model: 'post',
+       unique: true,
+    },
     participants: {
       collection: 'user',
       via: 'userEvents' 

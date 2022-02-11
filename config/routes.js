@@ -11,6 +11,7 @@
 module.exports.routes = {
     'POST /user/register': 'user/register',
     'GET /user/confirm': 'user/confirm',
+    'GET /user/:id' : {action: 'user/get'},
     'POST /user/login': 'user/login',
     'POST /user/forgot-password': 'user/forgot-password',
     'POST /user/reset-password': 'user/reset-password',

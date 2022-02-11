@@ -7,12 +7,16 @@ module.exports = {
   inputs: {
     dateEvent: { 
       type: 'string', 
-      required: true },
+      required: true 
+    },
     place: {
       type: 'string',
       required: true
     },
-
+    post_id: {
+      type: 'string',
+      required: true
+    },
   },
 
   exits: {
@@ -35,10 +39,8 @@ module.exports = {
       let newEvent = await Event.create({
         dateEvent: inputs.dateEvent,
         place: inputs.place,
-        
+        post_id: inputs.post_id
       }).fetch();
-
-
 
       return exits.success({
         message: `The event has been created successfully !`,

@@ -47,6 +47,7 @@ module.exports = {
       
       const token = await sails.helpers.strings.random('url-friendly');
 
+      //create the user
       let newUser = await User.create({
         username: inputs.username,
         email: newEmailAddress,
@@ -56,6 +57,10 @@ module.exports = {
           Date.now() + sails.config.custom.emailProofTokenTTL,
       }).fetch();
 
+      //create the user's profile
+      let newUserProfile = await Profile.create({
+        profileOwner: newUser.id
+      }).fetch();
       
       const confirmLink = `${sails.config.api_baseUrl}/user/confirm?token=${token}`;
 

@@ -1,26 +1,30 @@
 
 module.exports = {
 
-
   friendlyName: 'Create',
-
 
   description: 'Create post.',
 
-
   inputs: {
-    photo:
-    {
-        type: 'string',
+    title: {
+      type: 'string',
+      required: true
     },
-
-   description: { type: 'string' }, 
-   category: { 
-    type: 'string',
-    required: true },
-
+    photo: { type: 'string'},
+    description: { type: 'string' }, 
+    category: { 
+      type: 'string',
+      required: true 
+    },
+    ownerP: {
+      type: 'string',
+      required: true
+    },
+    ownerProfile: {
+      type: 'string',
+      required: true
+    }
   },
-
 
   exits: {
     success: {
@@ -35,19 +39,17 @@ module.exports = {
 
   },
 
-
   fn: async function (inputs, exits) {
 
     try{
-     
       var newPost = await Post.create({
+        title: inputs.title,
         photo: inputs.photo,
         description: inputs.description,
         category: inputs.category,
-        
+        ownerP: inputs.ownerP,
+        ownerProfile: inputs.ownerProfile
       }).fetch();
-
-
 
       return exits.success({
         message: `The post has been created successfully !`,
@@ -61,14 +63,6 @@ module.exports = {
           error: 'Problem creating post',
         });
       }
-
-  
     }
-
-    
-
-
   }
-
-
 };
