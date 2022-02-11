@@ -46,8 +46,8 @@ export class SigninComponent implements OnInit {
         this.router.navigate(['/feed']);
       },
       (error) => {
-        console.log(error);
-        this.signinMessage = error.error.error;
+        
+        this.signinMessage = "Connexion error. Can not reach the server.";
         this.router.navigate(['/auth/signin']);
       }
     );
