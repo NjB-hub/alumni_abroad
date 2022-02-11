@@ -39,8 +39,6 @@ module.exports = {
         post_id: inputs.post_id
       }).fetch();
 
-
-
       return exits.success({
         message: `The offer has been created successfully !`,
         data: newOffer
