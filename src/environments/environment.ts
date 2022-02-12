@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   //backend_API_URL: "http://localhost:1337/",
-  backend_API_URL: "http://192.168.43.233:1337/",
+  backend_API_URL: "http://192.168.8.100:1337/",
   //backend_API_URL: "https://enspyalumniabroadapi.herokuapp.com/"
 };
 

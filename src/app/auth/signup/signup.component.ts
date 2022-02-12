@@ -47,7 +47,12 @@ export class SignupComponent implements OnInit {
         );
       },
       (error) => {
-        this.signupMessage = "Connexion error. Can not reach the server.";
+        if(error.error.error){
+          this.signupMessage = error.error.error;
+        }else{
+          this.signupMessage = "Connexion error. Can not reach the server.";
+        }
+        
         this.router.navigate(['/auth/signup']);
        }
     );

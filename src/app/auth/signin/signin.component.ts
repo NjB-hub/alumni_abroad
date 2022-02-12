@@ -43,11 +43,15 @@ export class SigninComponent implements OnInit {
         localStorage.setItem("user", JSON.stringify(response.data));
         localStorage.setItem("token", response.token);
    
-        this.router.navigate(['/feed']);
+        this.router.navigate(['/core/feed']);
       },
       (error) => {
+        if(error.error.error){
+          this.signinMessage = error.error.error;
+        }else{
+          this.signinMessage = "Connexion error. Can not reach the server.";
+        }
         
-        this.signinMessage = "Connexion error. Can not reach the server.";
         this.router.navigate(['/auth/signin']);
       }
     );
