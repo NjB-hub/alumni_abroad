@@ -9,6 +9,8 @@ module.exports = {
       type: 'string', 
       required: true 
     },
+    start: {type: 'string'},
+    end: {type: 'string'},
     place: {
       type: 'string',
       required: true
@@ -38,6 +40,8 @@ module.exports = {
      
       let newEvent = await Event.create({
         dateEvent: inputs.dateEvent,
+        start: inputs.start,
+        end: inputs.end,
         place: inputs.place,
         post_id: inputs.post_id
       }).fetch();

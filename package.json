@@ -33,7 +33,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/pepi/enspy-alumni-api.git"
+    "url": "git://github.com/pepi/enspy-alumni-api.git"  
   },
   "author": "pepi",
   "license": "",

@@ -14,6 +14,8 @@ module.exports = {
       type: 'string', 
       required: true 
     },
+    start: {type: 'string'},
+    end: {type: 'string'},
     place: {
       type: 'string',
       required: true

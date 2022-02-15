@@ -30,6 +30,13 @@ module.exports = {
     const user = await User.findOne({id: inputs.id}).populate('userProfile');
 
     if(user){
+
+      if(this.req.query["onlyUnreadPosts"] === "true"){
+        return exits.success({
+          unreadPosts: user.unreadPosts
+        })
+      }
+
       return exits.success(
         {data: user}
       )

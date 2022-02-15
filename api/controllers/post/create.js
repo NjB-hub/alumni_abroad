@@ -1,4 +1,3 @@
-
 module.exports = {
 
   friendlyName: 'Create',
@@ -50,6 +49,13 @@ module.exports = {
         ownerP: inputs.ownerP,
         ownerProfile: inputs.ownerProfile
       }).fetch();
+
+      //notify all the users that there is a new post
+      const users = await User.find({});
+
+      users.forEach(async function(user){
+        await User.update({id: user.id}).set({unreadPosts: true});
+      });
 
       return exits.success({
         message: `The post has been created successfully !`,

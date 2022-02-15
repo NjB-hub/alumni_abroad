@@ -51,6 +51,7 @@ module.exports = {
       example: 1508944074211,
       columnName: 'password_reset_token_expires_at',
     },
+    unreadPosts:{type: 'Boolean', defaultsTo: false},
     isAdmin: {
       type: 'Boolean',
       defaultsTo: false 
