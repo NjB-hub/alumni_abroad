@@ -33,6 +33,14 @@ export class PublishEventComponent implements OnInit {
     return this.publishEventForm.get('date');
   }
 
+  get start(){
+    return this.publishEventForm.get('start');
+  }
+
+  get end(){
+    return this.publishEventForm.get('end');
+  }
+
   get description(){
     return this.publishEventForm.get('description');
   }
@@ -49,6 +57,10 @@ export class PublishEventComponent implements OnInit {
 
     var place = this.publishEventForm.get('place')?.value;
     var date = this.publishEventForm.get('date')?.value;
+    var start = this.publishEventForm.get('start')?.value;
+    var end = this.publishEventForm.get('end')?.value;
+
+    console.log(start);
     
     //requête pour la création du post
     this.feedService.createPost(title, description, category, ownerP, ownerProfile).then(
@@ -56,17 +68,19 @@ export class PublishEventComponent implements OnInit {
         //requête pour la création de l'évènement
         var post_id = response.data.id;
 
-        this.feedService.createEvent(date, place, post_id).then(
+        this.feedService.createEvent(date, start, end, place, post_id).then(
           (response:any) => {
-
-            this.feedService.getPosts();
-            this.feedService.emitPosts();
 
             this.cancel();
             document.getElementById('postEventButton')?.click();
 
             this.router.navigate(['/core/feed']);
-            this.postSent.emit();
+            
+            var alertToggleButton = document.getElementById("toggleAlertButton");
+            alertToggleButton?.click();
+
+            var content:any = document.getElementById('content');
+            content.scrollTop = 0;
           },
           (error:any) => {
 
@@ -84,6 +98,8 @@ export class PublishEventComponent implements OnInit {
       title: ['', Validators.required],
       place: ['', Validators.required],
       date: ['', Validators.required],
+      start: [''],
+      end: [''],
       description: ['', Validators.required],
     })
   }

@@ -41,11 +41,18 @@ export class PublishOtherComponent implements OnInit {
     //requête pour la création du post
     this.feedService.createPost(title, description, category, ownerP, ownerProfile).then(
       (response:any) => {
+        
         this.cancel();
         document.getElementById('postOtherButton')?.click();
 
         this.router.navigate(['/core/feed']);
-        this.postSent.emit();
+
+        var alertToggleButton = document.getElementById("toggleAlertButton");
+        alertToggleButton?.click();
+
+        var content:any = document.getElementById('content');
+        content.scrollTop = 0;
+
       },
       (error:any) => {
 

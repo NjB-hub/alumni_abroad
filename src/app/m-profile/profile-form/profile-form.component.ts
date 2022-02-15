@@ -63,7 +63,7 @@ export class ProfileFormComponent implements OnInit {
             (response:any) => {
               localStorage.setItem('user', JSON.stringify(response.data));
               this.profileService.getCurrentProfileFromLocalStorage();
-              this.router.navigate(['settings/viewprofile'])
+              this.router.navigate(['/core/profile/viewprofile'])
             },
             (error:any) => {
 
@@ -76,7 +76,7 @@ export class ProfileFormComponent implements OnInit {
                 (response:any) => {
                   localStorage.setItem('user', JSON.stringify(response.data));
                   this.profileService.getCurrentProfileFromLocalStorage();
-                  this.router.navigate(['settings/viewprofile'])
+                  this.router.navigate(['/core/profile/viewprofile'])
                 },
                 (error:any) => {
 

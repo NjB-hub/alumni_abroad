@@ -1,5 +1,6 @@
-<div class="row animated fadeOutDown delay-15s slower delay-2s">
-    <div class="col-12 text-center font-weight-bold alert-info custom-alert" style="z-index: 0;">
-        <span>{{ message }}</span>
-    </div>
-</div>
+<ngb-alert #selfClosingAlert *ngIf="successMessage" type="success" (closed)="successMessage = ''" class="text-center">
+  {{ successMessage }}
+</ngb-alert>
+
+<button class="btn btn-primary" id="toggleAlertButton" (click)="changeSuccessMessage()">Change message</button>
+ 

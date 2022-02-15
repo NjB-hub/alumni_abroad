@@ -1,5 +1,5 @@
 <section class="container">
-    <app-m-alert *ngIf="alertMessage" [message]="alertMessage"></app-m-alert>
+    <app-m-alert></app-m-alert>
     
     <div class="row d-flex justify-content-center mt-4">
         <div class="col col-sm-8">
@@ -44,13 +44,10 @@
     <app-publish-other (postSent)="postSentAlert()"></app-publish-other>
   </div>
   
-  <div class="row">
-      <div class="col-lg-2">
-        
-      </div>
-      <div class="col">
+  <div class="row d-flex justify-content-center">
+      <div class="col-12  col-sm-8">
         <app-post-list></app-post-list>
       </div>
-      <div class="col-lg-2"></div>
   </div>
 </section>
+ 

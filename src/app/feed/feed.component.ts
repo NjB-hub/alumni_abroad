@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FeedService } from './services/feed.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss']
 })
-export class FeedComponent implements OnInit {
+export class FeedComponent implements OnInit, OnDestroy {
 
-  constructor(private router:Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private router:Router, private activatedRoute: ActivatedRoute, private feedService: FeedService) { }
 
   user:any;
   alertMessage:string = '';
@@ -53,7 +55,11 @@ export class FeedComponent implements OnInit {
   }
 
   postSentAlert(){
-    this.alertMessage = "Post Sent!";
+    
+  }
+
+  ngOnDestroy(): void {
+   
   }
 
 }

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MAlertComponent } from './m-alert.component';
-
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap'; 
 
 @NgModule({
   declarations: [
@@ -12,7 +12,10 @@ import { MAlertComponent } from './m-alert.component';
     MAlertComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NgbModule,
+    NgbAlertModule 
+
   ]
 })
 export class MAlertModule { }

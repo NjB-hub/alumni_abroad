@@ -16,8 +16,6 @@ export class PublishOfferComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private feedService: FeedService, private router:Router){}
 
-  
-
   ngOnInit(): void {
     this.initForm();
   }
@@ -54,15 +52,20 @@ export class PublishOfferComponent implements OnInit {
 
         this.feedService.createOffer(company, post_id).then(
           (response:any) => {
-    
-            this.feedService.getPosts();
-            this.feedService.emitPosts();
 
             this.cancel();
             document.getElementById('postOfferButton')?.click();
+          
+            this.feedService.getPosts();
+            this.feedService.emitPosts();
 
             this.router.navigate(['/core/feed']);
-            this.postSent.emit();
+
+            var alertToggleButton = document.getElementById("toggleAlertButton");
+            alertToggleButton?.click();
+
+            var content:any = document.getElementById('content');
+            content.scrollTop = 0;
           },
           (error:any) => {
 

@@ -3,7 +3,8 @@
         <img src='assets/images/logoEAA.jpeg' width="50" height="50" alt="Logo du site" />
         <span class="hidden-sm">ENSPY-Alumni</span>   
     </a>
-    <a class="nav-link fromleft" routerLinkActive="active-link" routerLink="/core/feed" (click)="emitPosts()"><i class="fa fa-fw fa-home"></i> <span class="hidden-sm">Feed</span></a>
+    
+    <a class="nav-link fromleft" routerLinkActive="active-link" routerLink="/core/feed" (click)="emitPosts()"><i class="fa fa-fw" *ngIf="newPost">.</i><i class="fa fa-fw fa-home"></i><span class="hidden-sm">Feed</span></a>
     <a class="nav-link fromleft" routerLinkActive="active-link" routerLink="/core/search"><i class="fa fa-fw fa-search"></i> <span class="hidden-sm">Search</span></a>
     <a class="nav-link fromleft" routerLinkActive="active-link" routerLink="/core/notifications"><i class="fa fa-fw fa-bell"></i> <span class="hidden-sm">Notifications</span></a>
     <a class="nav-link fromleft" routerLinkActive="active-link" routerLink="/core/calendar"><i class="fa fa-fw fa-calendar"></i><span class="hidden-sm">Calendar</span> </a>

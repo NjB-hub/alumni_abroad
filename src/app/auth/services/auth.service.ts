@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { environment } from '../../../environments/environment';
@@ -65,6 +65,24 @@ export class AuthService {
             (resolve, reject) => {
                 //Place backend function here
                 this.http.post(environment.backend_API_URL + 'user/reset-password', {password: password, token:token}).subscribe(
+                    (response) =>{
+                        resolve(response);
+                    },
+                    (error) => {
+                        reject(error);
+                    }
+                );
+            }
+        );
+    }
+
+    getUser(userId:string, onlyUnreadPosts:string){
+        return new Promise( //asynchronous function
+            (resolve, reject) => {
+                //Place backend function here
+                var params = new HttpParams().set('onlyUnreadPosts', onlyUnreadPosts);
+
+                this.http.get(environment.backend_API_URL + 'user/' + userId, {params: params}).subscribe(
                     (response) =>{
                         resolve(response);
                     },
